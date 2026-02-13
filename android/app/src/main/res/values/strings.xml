@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TestApp</string>
+    <string name="asset_statements">[{\"include\": \"https://${DEEP_LINK_HOST}/.well-known/assetlinks.json\"}]</string>
+</resources>

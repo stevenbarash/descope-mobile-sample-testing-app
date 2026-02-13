@@ -1,0 +1,48 @@
+name: App
+options:
+  xcodeVersion: "2610"
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "18.0"
+
+packages:
+  DescopeKit:
+    url: https://github.com/descope/descope-swift
+    from: 0.10.0
+
+targets:
+  App:
+    type: application
+    platform: iOS
+    sources:
+      - path: src
+        excludes:
+          - "tests/**"
+    resources:
+      - res
+    dependencies:
+      - package: DescopeKit
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.example.myapp
+      INFOPLIST_FILE: etc/Info.plist
+      CODE_SIGN_ENTITLEMENTS: etc/App.entitlements
+      SWIFT_VERSION: "6.0"
+      SWIFT_STRICT_CONCURRENCY: complete
+      SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+      DEVELOPMENT_TEAM: YOUR_APPLE_TEAM_ID
+      ENABLE_USER_SCRIPT_SANDBOXING: YES
+      STRING_CATALOG_GENERATE_SYMBOLS: YES
+
+  AppUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: src/tests/ui
+      - path: src/views/Identifiers.swift
+    dependencies:
+      - target: App
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.example.myapp.uitests
+      SWIFT_VERSION: "6.0"
+      GENERATE_INFOPLIST_FILE: YES
+      DEVELOPMENT_TEAM: YOUR_APPLE_TEAM_ID

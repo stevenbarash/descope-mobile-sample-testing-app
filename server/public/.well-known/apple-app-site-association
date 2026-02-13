@@ -1,0 +1,22 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "YOUR_APPLE_TEAM_ID.com.descope.testapp"
+        ],
+        "components": [
+          {
+            "/": "/redirect/*",
+            "comment": "Matches any URL whose path starts with /redirect/"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "YOUR_APPLE_TEAM_ID.com.descope.testapp"
+    ]
+  }
+}
